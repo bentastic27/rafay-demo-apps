@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: virtualfoundry-ingress
+  namespace: virtualfoundry
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /virtualfoundry
+        pathType: Prefix
+        backend:
+          service:
+            name: bespin-virtualfoundry-service
+            port:
+              number: 8080
